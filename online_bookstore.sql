@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2025 at 09:18 AM
+-- Generation Time: Jan 24, 2025 at 09:42 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,6 +46,17 @@ CREATE TABLE `authors` (
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `authors`
+--
+
+INSERT INTO `authors` (`id`, `name`) VALUES
+(1, 'J.K. Rowling'),
+(2, 'George R.R. Martin'),
+(3, 'J.R.R. Tolkien'),
+(4, 'Agatha Christie'),
+(5, 'Stephen King');
+
 -- --------------------------------------------------------
 
 --
@@ -59,8 +70,16 @@ CREATE TABLE `books` (
   `genre_id` int(11) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `stock` int(11) NOT NULL,
-  `popularity` int(11) NOT NULL
+  `popularity` int(11) NOT NULL,
+  `image_url` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`id`, `title`, `author_id`, `genre_id`, `price`, `stock`, `popularity`, `image_url`) VALUES
+(3, 'Iron Flame', 1, 1, 40.00, 5, 5, '');
 
 -- --------------------------------------------------------
 
@@ -86,6 +105,17 @@ CREATE TABLE `genres` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `genres`
+--
+
+INSERT INTO `genres` (`id`, `name`) VALUES
+(1, 'Fantasy'),
+(2, 'Mystery'),
+(3, 'Horror'),
+(4, 'Science Fiction'),
+(5, 'Adventure');
 
 -- --------------------------------------------------------
 
@@ -181,13 +211,13 @@ ALTER TABLE `addresses`
 -- AUTO_INCREMENT for table `authors`
 --
 ALTER TABLE `authors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `customers`
@@ -199,7 +229,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `orders`
